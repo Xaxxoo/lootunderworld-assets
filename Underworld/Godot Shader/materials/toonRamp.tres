@@ -1,0 +1,88 @@
+[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://n77kc3dgtl2j"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ltnty"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_orvk0"]
+constant = Color(0.692302, 0.778657, 0.82431, 1)
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_j51mw"]
+parameter_name = "Diffuse"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_cxsw4"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="Curve" id="Curve_v1yv5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xvgjg"]
+curve = SubResource("Curve_v1yv5")
+
+[sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_7otnh"]
+texture = SubResource("CurveTexture_xvgjg")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_5cbl4"]
+source = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_1vwp4"]
+input_name = "albedo"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_cu5bh"]
+input_name = "light"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_faras"]
+input_name = "diffuse"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_oegk7"]
+input_name = "light_color"
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_2uvmt"]
+constant = Color(1, 0, 0.0166664, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hng85"]
+input_name = "backlight"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ecjij"]
+input_name = "view"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_b21x0"]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_ltnty")
+nodes/fragment/2/position = Vector2(-180, 80)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorConstant_orvk0")
+nodes/fragment/3/position = Vector2(-40, 440)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture2DParameter_j51mw")
+nodes/fragment/4/position = Vector2(-540, 60)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_cxsw4")
+nodes/fragment/5/position = Vector2(-540, 360)
+nodes/fragment/6/node = SubResource("VisualShaderNodeCurveTexture_7otnh")
+nodes/fragment/6/position = Vector2(-160, 560)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_5cbl4")
+nodes/fragment/7/position = Vector2(-180, 180)
+nodes/light/2/node = SubResource("VisualShaderNodeInput_1vwp4")
+nodes/light/2/position = Vector2(-400, 140)
+nodes/light/3/node = SubResource("VisualShaderNodeInput_cu5bh")
+nodes/light/3/position = Vector2(-400, 60)
+nodes/light/4/node = SubResource("VisualShaderNodeInput_faras")
+nodes/light/4/position = Vector2(-20, 500)
+nodes/light/5/node = SubResource("VisualShaderNodeInput_oegk7")
+nodes/light/5/position = Vector2(-400, 220)
+nodes/light/6/node = SubResource("VisualShaderNodeColorConstant_2uvmt")
+nodes/light/6/position = Vector2(200, 40)
+nodes/light/7/node = SubResource("VisualShaderNodeInput_hng85")
+nodes/light/7/position = Vector2(-400, 380)
+nodes/light/8/node = SubResource("VisualShaderNodeInput_ecjij")
+nodes/light/8/position = Vector2(-400, 460)
+nodes/light/9/node = SubResource("VisualShaderNodeVectorOp_b21x0")
+nodes/light/9/position = Vector2(40, 100)
+nodes/light/connections = PackedInt32Array(2, 0, 9, 0, 5, 0, 9, 1)
