@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cbda73lxk4csd"]
 
 [ext_resource type="Shader" uid="uid://wl0rcgw2wg7n" path="res://materials/ramp_material.tres" id="1_lmtof"]
-[ext_resource type="Texture2D" uid="uid://cslevr1a3xmav" path="res://textures/00013-230991767.png" id="2_qnqla"]
+[ext_resource type="Texture2D" uid="uid://cslevr1a3xmav" path="res://textures/bricks.png" id="2_qnqla"]
 
 [resource]
 render_priority = 0

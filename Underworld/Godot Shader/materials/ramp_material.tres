@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=32 format=3 uid="uid://wl0rcgw2wg7n"]
 
-[ext_resource type="Texture2D" uid="uid://cslevr1a3xmav" path="res://textures/00013-230991767.png" id="1_mbocr"]
+[ext_resource type="Texture2D" uid="uid://cslevr1a3xmav" path="res://textures/bricks.png" id="1_mbocr"]
 [ext_resource type="Texture2D" uid="uid://cibf8fhfejv76" path="res://textures/ramp.png" id="2_utoeh"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_08deu"]
